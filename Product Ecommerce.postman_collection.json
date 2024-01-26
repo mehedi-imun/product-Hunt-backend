@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "2aacdd40-8081-4bea-99ea-c11ba3a03f75",
+		"name": "Product Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28720851"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Smartphone X\",\n  \"price\": 599.99,\n  \"description\": \"A high-performance smartphone with advanced features.\",\n  \"brand\": \"TechGadget\",\n  \"category\": \"Electronics\",\n  \"quantity\": 100,\n  \"rating\": 4.5,\n  \"isAvailable\": true,\n  \"imageUrl\": \"http://dummyimage.com/300x200.png/cccccc/000000\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{product_ecommerce}}/products",
+							"host": [
+								"{{product_ecommerce}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{product_ecommerce}}/products",
+							"host": [
+								"{{product_ecommerce}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "pagination",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "Samsung",
+									"description": "search function",
+									"disabled": true
+								},
+								{
+									"key": "productName",
+									"value": "Pandora Charm Bracelet",
+									"description": "filtering on email, username etc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-username",
+									"description": "sort in ascending or descending order",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "-description",
+									"description": "field filtering",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{product_ecommerce}}/products/65b228251eb990ba7bfcda62",
+							"host": [
+								"{{product_ecommerce}}"
+							],
+							"path": [
+								"products",
+								"65b228251eb990ba7bfcda62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"newSecurePassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{product_ecommerce}}/products/65b0e5a70b5b831f550df1d8",
+							"host": [
+								"{{product_ecommerce}}"
+							],
+							"path": [
+								"products",
+								"65b0e5a70b5b831f550df1d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{product_ecommerce}}/products/65b233564edee0002617a945",
+							"host": [
+								"{{product_ecommerce}}"
+							],
+							"path": [
+								"products",
+								"65b233564edee0002617a945"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "product_ecommerce",
+			"value": "http://localhost:5000/api/v1",
+			"type": "string"
+		}
+	]
+}
